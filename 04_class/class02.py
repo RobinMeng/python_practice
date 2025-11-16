@@ -1,3 +1,4 @@
+## base class
 class User:
     """用户类"""
 
