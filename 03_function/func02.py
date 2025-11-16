@@ -1,5 +1,5 @@
 ## 可变参数
-
+## 打包传惨
 def add(a, b, *args):
     print(f"第一个参数:{a}")
     print(f"第二个参数:{b}")

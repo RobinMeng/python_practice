@@ -6,7 +6,7 @@ def add(a, b, c):
 
 params = [2, 3, 4]
 print(add(2, 3, 4))
-## 指定列表参数 *param
+## 指定列表参数 *param,解包
 print(add(*params))
 
 ## 指定字典参数
