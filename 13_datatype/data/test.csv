@@ -1,0 +1,13 @@
+order_id,customer_name,product_name,quantity,unit_price,order_date,category,is_member,region
+1001,张三,无线鼠标,2,89.50,2023-10-25,电子产品,TRUE,华东
+1002,李四,机械键盘,1,450.00,2023-10-26,电子产品,FALSE,华北
+1003,王五,马克杯,3,25.80,2023-10-26,家居用品,TRUE,华南
+1004,赵六,商务笔记本,5,15.00,2023-10-27,文具,TRUE,华东
+1005,钱七,蓝牙耳机,1,299.00,2023-10-28,电子产品,FALSE,西部
+1006,孙八,钢笔,2,120.00,2023-10-29,文具,TRUE,华北
+1007,周九,办公椅,1,680.00,2023-10-30,家具,FALSE,华南
+1008,吴十,笔记本电脑支架,1,150.00,2023-10-30,电子产品,TRUE,华东1009,吴十test,笔记本电脑支架test,1test,150.00test,2023-10-30,电子产品test,TRUE,华东test
+1009,吴十test,笔记本电脑支架test,1test,150.00test,2023-10-30,电子产品test,TRUE,华东test
+1009,吴十test,笔记本电脑支架test,1test,150.00test,2023-10-30,电子产品test,TRUE,华东test
+1009,吴十test,笔记本电脑支架test,1test,150.00test,2023-10-30,电子产品test,TRUE,华东test
+1009,吴十test,笔记本电脑支架test,1test,150.00test,2023-10-30,电子产品test,TRUE,华东test
