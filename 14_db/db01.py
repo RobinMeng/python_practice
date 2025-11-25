@@ -62,6 +62,7 @@ def del_data():
     User.delete().where(User.id == 1).execute()
 
 
+## 排序
 def order_data():
     list_data = User.select().order_by(User.age.desc()).execute()
     print("*" * 50)
