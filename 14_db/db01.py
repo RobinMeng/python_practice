@@ -83,3 +83,31 @@ if __name__ == "__main__":
     query_data()
     query_data2()
     order_data()
+
+"""
+peewee语法
+模型类.操作动作[.条件][.修饰][.execute()]
+
+操作动作
+select() - 查询
+insert() - 插入
+update() - 更新
+delete() - 删除
+create() - 创建实例并保存（快捷方式）
+get() - 获取单条记录
+
+条件
+where() - 条件过滤
+orwhere() - OR 条件
+
+修饰
+order_by() - 排序
+limit() - 限制数量
+offset() - 偏移量
+join() - 关联查询
+
+执行
+execute() - 显式执行
+
+
+"""
