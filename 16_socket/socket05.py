@@ -16,11 +16,11 @@ def unpackage_msg_string(msg):
         return None
     length = struct.unpack('!I', msg[:4])[0]
     string_data = msg[4:4 + length].decode('utf-8')
-    return string_data
+    return length, string_data
+
 
 
 if __name__ == '__main__':
     data = package_msg_string("hello world")
     print(type(data))
-    print(data)
     print(unpackage_msg_string(data))
