@@ -1,0 +1,32 @@
+1.环境安装
+我们需要安装以下这4个Python库：
+
+transformers>=4.41.0
+datasets>=2.19.1
+swanlab>=0.3.6
+一键安装命令：
+
+pip install transformers datasets swanlab>=0.3.6
+他们的作用分别是： 1. transformers：HuggingFace出品的深度学习框架，已经成为了NLP（自然语言处理）领域最流行的训练与推理框架。代码中用transformers主要用于加载模型、训练以及推理。
+
+2. datasets：同样是HuggingFace出品的数据集工具，可以下载来自huggingface社区上的数据集。代码中用datasets主要用于下载、加载数据集。
+
+3. swanlab：在线训练可视化和超参数记录工具，官网，可以记录整个实验的超参数、指标、训练环境、Python版本等，并可是化成图表，帮助你分析训练的表现。代码中用swanlab主要用于记录指标和可视化。
+
+本文的代码测试于transformers==4.41.0、datasets==2.19.1、swanlab==0.3.3，更多库版本可查看SwanLab记录的Python环境。
+2.加载BERT模型
+BERT模型我们直接下载来自HuggingFace上由Google发布的bert-case-uncased预训练模型。
+
+执行下面的代码，会自动下载模型权重并加载模型：
+
+from transformers import AutoTokenizer, AutoModelForSequenceClassification, Trainer, TrainingArguments
+
+# 加载预训练的BERT tokenizer
+model = AutoModelForSequenceClassification.from_pretrained('bert-base-uncased', num_labels=2)
+如果国内下载比较慢的话，可以在这个百度云（提取码: u9gi）下载后，把bert-base-uncased文件夹放到根目录，然后改写上面的代码为：
+
+model = AutoModelForSequenceClassification.from_pretrained('./bert-base-uncased', num_labels=2)
+3.加载IMDB数据集
+IMDB数据集（Internet Movie Database Dataset）是自然语言处理（NLP）领域中一个非常著名和广泛使用的数据集，主要应用于文本情感分析任务。
+
+IMDB数据集源自全球最大的电影数据库网站Internet Movie Database（IMDb），该网站包含了大量的电影、电视节目、纪录片等影视作品信息，以及用户对这些作品的评论和评分。 数据集包括50,000条英文电影评论，这些评论被标记为正面或负面情感，用以进行二分类任务。其中，25,000条评论被分配为训练集，另外25,000条则作为测试集。训练集和测试集都保持了平衡的正负样本比例，即各含50%的正面评论和50%的负面评论.

@@ -11,13 +11,21 @@ def package_msg_string(msg):
     return packed_data
 
 
+def package_bytes(bytes):
+    if not bytes:
+        return None
+    length = len(bytes)
+    length_bytes = struct.pack('!I', length)
+    packed_data = length_bytes + bytes
+    return packed_data
+
+
 def unpackage_msg_string(msg):
     if not msg:
         return None
     length = struct.unpack('!I', msg[:4])[0]
     string_data = msg[4:4 + length].decode('utf-8')
     return length, string_data
-
 
 
 if __name__ == '__main__':
