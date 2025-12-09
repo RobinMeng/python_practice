@@ -3,7 +3,7 @@ import socket
 
 ip = "127.0.0.1"
 port = 8000
-board_cast = " 127.255.255.255"
+board_cast = "<broadcast>"
 
 
 def client():

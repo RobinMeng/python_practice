@@ -3,7 +3,7 @@
 import socket
 import threading
 
-ip = "127.0.0.1"
+ip = ""
 port = 8000
 
 
