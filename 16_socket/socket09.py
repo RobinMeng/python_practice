@@ -12,6 +12,7 @@ port = 8000
 def client():
     while True:
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        print(type(sock))
         sock.connect((ip, port))
         with sock:
             while True:
