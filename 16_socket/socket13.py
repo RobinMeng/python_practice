@@ -6,7 +6,7 @@ port = 8000
 
 
 def socket_client():
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock = socket.socket(family=socket.AF_INET, type=socket.SOCK_STREAM)
     sock.connect((ip, port))
     print("connect success...")
     with sock:
