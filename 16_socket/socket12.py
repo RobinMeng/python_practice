@@ -1,6 +1,7 @@
 ## 回声服务器
 import socket
 import select
+import struct
 
 ip = "127.0.0.1"
 port = 8000
@@ -28,11 +29,27 @@ def socket_server():
                 print(f"new connect:{c_sock}")
             else:
                 c_sock: socket.socket = rdata
-                msg = c_sock.recv(1024)
-                if not msg:
+                length_msg = c_sock.recv(4)
+                if not length_msg:
                     rList.remove(c_sock)
-                print(f"msg:{c_sock}-{msg.decode(encoding='utf-8')}")
-                c_sock.sendall(msg)
+                length = struct.unpack("!I", length_msg[:4])[0]
+                data_msg = recv_exact(c_sock, length)
+                print(f"msg:{c_sock}-{data_msg.decode(encoding='utf-8')}")
+                c_sock.sendall(struct.pack("!I", length) + data_msg)
+
+
+def recv_exact(sock, n):
+    """精确收 n 字节，不足就循环，返回 bytes 或 None（对端关闭）"""
+    buf = bytearray()
+    while len(buf) < n:
+        try:
+            data = sock.recv(n - len(buf))
+        except BlockingIOError:  # 非阻塞模式下缓冲区空
+            continue
+        if not data:  # 对端关闭
+            return None
+        buf.extend(data)
+    return bytes(buf)
 
 
 if __name__ == '__main__':
