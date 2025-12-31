@@ -22,7 +22,7 @@ def socket_client():
             echo_msg = recv_exact(sock, recv_len)
             if not echo_msg:
                 break
-            print(f"echo server msgs:{echo_msg.decode(encoding='utf-8')}")
+            print(f"echo server msgs:{echo_msg.decode(encoding='utf-8', errors='replace')}")
 
 
 def recv_exact(sock, n):
