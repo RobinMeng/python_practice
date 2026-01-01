@@ -37,7 +37,7 @@ def srv_read(clt_sock: socket.socket):
         return
     write_buff: bytearray = out_bufs[clt_sock]
     write_buff.extend(data_length + data_msg)
-    print(f"clt_sock:msg:{data_msg.decode(encoding='utf-8', errors='replace')}")
+    ##print(f"clt_sock:msg:{data_msg.decode(encoding='utf-8', errors='replace')}")
     if len(write_buff) > 0:
         print(f"clt_sock: read msg successfull write event open()")
         selector.modify(fileobj=clt_sock, events=selectors.EVENT_READ | selectors.EVENT_WRITE,
@@ -65,7 +65,7 @@ def recv_exact(sock, n):
         try:
             data = sock.recv(n - len(buf))
         except BlockingIOError:  # 非阻塞模式下缓冲区空
-            continue
+            return None
         if not data:  # 对端关闭
             return None
         buf.extend(data)
@@ -85,8 +85,10 @@ if __name__ == '__main__':
                     continue
                 if mask & selectors.EVENT_READ:
                     srv_read(key.fileobj)
+                    continue
                 if mask & selectors.EVENT_WRITE:
                     srv_write(key.fileobj)
+
     except BaseException as ex:
         print(ex)
         traceback.print_tb(ex.__traceback__)
