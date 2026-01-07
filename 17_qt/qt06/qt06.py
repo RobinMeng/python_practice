@@ -9,6 +9,7 @@ class MyMainWindows(QMainWindow):
         super().__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        print(self.ui.label.text())
 
 
 if __name__ == '__main__':

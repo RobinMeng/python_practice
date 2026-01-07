@@ -24,7 +24,26 @@
      </rect>
     </property>
     <property name="text">
-     <string>姓名</string>
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>110</y>
+      <width>59</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;a href=&quot;http://www.baidu.com&quot;&gt;姓名&lt;/a&gt;</string>
     </property>
    </widget>
   </widget>
@@ -40,6 +59,9 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="jpg.qrc"/>
+  <include location="../../../../../.designer/backup/jpg.qrc"/>
+ </resources>
  <connections/>
 </ui>
